@@ -1,0 +1,37 @@
+const formulario = document.getElementById("formulario");
+
+formulario.addEventListener(
+    "submit", function(event){
+        event.preventDefault();
+
+        const nombre = document.getElementById("name").value.trim();
+        const edad = document.getElementById("age").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telefono = document.getElementById("phone").value.trim();
+    
+
+        //Elementos error
+        const errorName = document.getElementById("errorName");
+        const errorAge = document.getElementById("errorAge");
+        const errorEmail = document.getElementById("errorEmail");
+        const errorPhone = document.getElementById("errorphone");
+
+        const mensaje = document.getElementById("message");
+
+        //Tecnica del centinela
+        let valido =true;
+        if(nombre === ""){
+            errorName.textContent = "El nombre es obligatorio";
+            valido = false;
+        }else{
+            errorName.textContent = "";
+        } 
+
+        if(valido){
+            mensaje.textContent= "Registro correcto";
+        }else{
+            mensaje.textContent= "";
+        
+        }
+    }
+)
